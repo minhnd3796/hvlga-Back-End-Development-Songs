@@ -64,7 +64,7 @@ def count():
 @app.route("/song", methods=["GET"])
 def songs():
     songs = client.songs.songs.find({})
-    return {"songs": json_util.dumps(list(songs))}, 200
+    return {"songs": parse_json(list(songs))}, 200
 
 @app.route("/song/<int:id>", methods=["GET"])
 def get_song_by_id(id):
